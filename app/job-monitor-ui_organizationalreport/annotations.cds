@@ -5,14 +5,6 @@ annotate service.JobHeaderViews with @(
         Data : [
             {
                 $Type : 'UI.DataField',
-                Value : ExecutorID,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : ExecutorName,
-            },
-            {
-                $Type : 'UI.DataField',
                 Value : Executor,
             },
             {
@@ -21,15 +13,7 @@ annotate service.JobHeaderViews with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : BaseDate,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : TargetOrgCode,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : TargetOrgName,
+                Value : CreatedDatetime,
             },
             {
                 $Type : 'UI.DataField',
@@ -37,7 +21,7 @@ annotate service.JobHeaderViews with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : OrgRankCode,
+                Value : BaseDate,
             },
             {
                 $Type : 'UI.DataField',
@@ -46,38 +30,7 @@ annotate service.JobHeaderViews with @(
             {
                 $Type : 'UI.DataField',
                 Value : LeaderOnly,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : LeaderOnlyText,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : Status,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : StatusText,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : Message,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : OutputFileRef,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : CreatedDatetime,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : ProcessingStartAt,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : ProcessingEndAt,
+                Label : '出力区分（責任者のみ）',
             },
         ],
     },
@@ -85,8 +38,14 @@ annotate service.JobHeaderViews with @(
         {
             $Type : 'UI.ReferenceFacet',
             ID : 'GeneratedFacet1',
-            Label : 'General Information',
+            Label : 'ジョブ情報',
             Target : '@UI.FieldGroup#GeneratedGroup',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '処理結果',
+            ID : '_',
+            Target : '@UI.FieldGroup#_',
         },
     ],
     UI.LineItem : [
@@ -127,5 +86,23 @@ annotate service.JobHeaderViews with @(
         ExecutorID,
         CreatedDatetime,
     ],
+    UI.FieldGroup #_ : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : ProcessingStartAt,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : StatusText,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : Message,
+            },
+        ],
+    },
+    UI.DeleteHidden : true,
 );
 

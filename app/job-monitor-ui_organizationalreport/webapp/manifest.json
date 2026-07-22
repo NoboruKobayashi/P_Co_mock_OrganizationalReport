@@ -127,7 +127,19 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/JobHeaderViews"
+              "contextPath": "/JobHeaderViews",
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.FieldGroup#_": {
+                  "actions": {
+                    "download": {
+                      "press": "panasonic.sf.organizationalreport.jobmonitoruiorganizationalreport.ext.controller.DownloadFile.downloadFile",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "ダウンロード"
+                    }
+                  }
+                }
+              }
             }
           }
         }

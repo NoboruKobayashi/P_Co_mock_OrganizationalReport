@@ -77,7 +77,7 @@ view JobHeaderView as
               h.BaseDate                                               @(Common.Label : '基準日'),
               h.TargetOrgCode                                          @(Common.Label : '対象組織コード'),
               h.TargetOrgName                                          @(Common.Label : '対象組織名'),
-              h.TargetOrgCode || ' ' || h.TargetOrgName                 as TargetOrg      : String(221) @(Common.Label : '対象組織'),
+              h.TargetOrgName || '(' || h.TargetOrgCode  || ')'                as TargetOrg      : String(221) @(Common.Label : '対象組織'),
               h.OrgRankCode                                            @(Common.Label : '組織格コード'),
               h.OrgRankText                                            @(Common.Label : '組織格'),
               h.LeaderOnly                                             @(Common.Label : '責任者のみ'),
