@@ -3,15 +3,22 @@
   "version": "1.0.0",
   "dependencies": {
     "@cap-js/postgres": "^2",
-    "@sap/cds": "^9",
+    "@sap/cds": "^9.9.3",
     "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2.4",
-    "@sap/cds-dk": "^9"
+    "@sap/cds-dk": "^9.9.3",
+    "cds-plugin-ui5": "^0.17.0",
+    "mbt": "^1.2.49",
+    "rimraf": "^5.0.5"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-job-monitor-ui_organizationalreport": "cds watch --open panasonic.sf.organizationalreport.jobmonitoruiorganizationalreport/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "undeploy": "cf undeploy 202607_P_Co_mock_OrganizationalReport --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
   },
   "private": true,
   "cds": {
@@ -21,5 +28,11 @@
       },
       "destinations": true
     }
-  }
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/job-monitor-ui_organizationalreport"
+  ]
 }
